@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card.js";
 import axios from "axios";
 //bootstrap imports
-import Jumbotron from "react-bootstrap/JumboTron";
+//import Jumbotron from "react-bootstrap/JumboTron";
 
 //stylesheet imports
 import "bootstrap/dist/css/bootstrap.css";
@@ -69,7 +69,7 @@ function App() {
         </nav>
 
         <div className="App container">
-          <Jumbotron className="bg-secondary" style={{ marginTop: "3rem" }}>
+          <div className="bg-secondary jumbotron" style={{ marginTop: "3rem" }}>
             <div style={{ paddingBottom: "3rem" }}>
               <h1 className="text-light">{title}</h1>
             </div>
@@ -79,7 +79,7 @@ function App() {
               alt="this"
             />
             <p>{published}</p>
-          </Jumbotron>
+          </div>
           <h6>Story appears on: {newsSite}</h6>
           <h4>{summary}</h4>
           <button
