@@ -38,8 +38,8 @@ function App() {
   }, []);
 
   return (
-    <body className="justify-content-center mainStyle">
-      <div className="container">
+    <body className="d-flex justify-content-center mainStyle">
+      <div className="d-flex container">
         <header className="header">
           Space Digest{" "}
           <p style={{ fontSize: "2rem" }}>Your Source for News of the Cosmos</p>
