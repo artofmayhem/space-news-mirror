@@ -41,7 +41,7 @@ function App() {
     <body className="d-flex justify-content-center mainStyle">
       <div className="container">
         <header className="header">
-          Space Digest{" "}
+         <h1>Space Digest</h1> 
           <p style={{ fontSize: "2rem" }}>Your Source for News of the Cosmos</p>
         </header>
         <nav
