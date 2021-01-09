@@ -41,7 +41,7 @@ function App() {
     <body className="d-flex justify-content-center mainStyle">
       <div className="container">
         <header className="header">
-         <h1>Space Digest</h1> 
+          <h1>Space Digest</h1>
           <p style={{ fontSize: "2rem" }}>Your Source for News of the Cosmos</p>
         </header>
         <nav
@@ -60,7 +60,7 @@ function App() {
           </button>
           <button className="btn btn-two">
             <a href="https://www.nasa.gov/mission_pages/shuttle/main/index.html">
-              Shuttle Missions
+              SHUTTLE MISSIONS
             </a>
           </button>
           <button className="btn btn-two">
