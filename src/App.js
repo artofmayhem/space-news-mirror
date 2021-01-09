@@ -39,13 +39,13 @@ function App() {
 
   return (
     <body className="d-flex justify-content-center mainStyle">
-      <div className="d-flex container">
+      <div className="container">
         <header className="header">
           Space Digest{" "}
           <p style={{ fontSize: "2rem" }}>Your Source for News of the Cosmos</p>
         </header>
         <nav
-          className="d-flex justify-content-around nav"
+          className="d-flex justify-content-center nav"
           style={{
             paddingTop: "3rem",
             paddingBottom: "3rem",
