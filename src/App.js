@@ -24,22 +24,22 @@ function App() {
       .get("https://test.spaceflightnewsapi.net/api/v2/articles")
       .then((res) => {
         setData(res.data);
-        setId(res.data[2].id);
-        setTitle(res.data[2].title);
-        setImage(res.data[2].imageUrl);
-        setNewsSite(res.data[2].newsSite);
-        setPublished(res.data[2].publishedAt);
-        setSummary(res.data[2].summary);
-        setUpdated(res.data[2].updatedAt);
-        setUrl(res.data[2].url);
+        setId(res.data[1].id);
+        setTitle(res.data[1].title);
+        setImage(res.data[1].imageUrl);
+        setNewsSite(res.data[1].newsSite);
+        setPublished(res.data[1].publishedAt);
+        setSummary(res.data[1].summary);
+        setUpdated(res.data[1].updatedAt);
+        setUrl(res.data[1].url);
         console.log(res.data);
       })
       .catch((error) => console.log("The API request has failed. "));
   }, []);
 
   return (
-    <body className="d-flex justify-content-center mainStyle">
-      <div>
+    <body className="justify-content-center mainStyle">
+      <div className="container">
         <header className="header">
           Space Digest{" "}
           <p style={{ fontSize: "2rem" }}>Your Source for News of the Cosmos</p>
