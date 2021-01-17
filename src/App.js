@@ -52,18 +52,18 @@ function App() {
             backgroundColor: "#222",
           }}
         >
-          <button className="btn btn-two">
+          <button className="btn btn-one">
             <a href="https://www.nasa.gov/">NASA</a>
           </button>
-          <button className="btn btn-two">
+          <button className="btn btn-one">
             <a href="https://www.spacenews.com/">SPACE NEWS</a>
           </button>
-          <button className="btn btn-two">
+          <button className="btn btn-one">
             <a href="https://www.nasa.gov/mission_pages/shuttle/main/index.html">
               SHUTTLE MISSIONS
             </a>
           </button>
-          <button className="btn btn-two">
+          <button className="btn btn-one">
             <a href="https://www.spacex.com/">SPACE X</a>
           </button>
         </nav>
@@ -83,7 +83,7 @@ function App() {
           <h6>Story appears on: {newsSite}</h6>
           <h4>{summary}</h4>
           <button
-            class="btn btn-two"
+            class="btn btn-three"
             style={{ marginTop: "2rem", marginBottom: "2rem", color: "white" }}
           >
             <a href={url}>Click For The Full Story</a>
