@@ -24,14 +24,14 @@ function App() {
       .get("https://test.spaceflightnewsapi.net/api/v2/articles")
       .then((res) => {
         setData(res.data);
-        setId(res.data[1].id);
-        setTitle(res.data[1].title);
-        setImage(res.data[1].imageUrl);
-        setNewsSite(res.data[1].newsSite);
-        setPublished(res.data[1].publishedAt);
-        setSummary(res.data[1].summary);
-        setUpdated(res.data[1].updatedAt);
-        setUrl(res.data[1].url);
+        setId(res.data[0].id);
+        setTitle(res.data[0].title);
+        setImage(res.data[0].imageUrl);
+        setNewsSite(res.data[0].newsSite);
+        setPublished(res.data[0].publishedAt);
+        setSummary(res.data[0].summary);
+        setUpdated(res.data[0].updatedAt);
+        setUrl(res.data[0].url);
         console.log(res.data);
       })
       .catch((error) => console.log("The API request has failed. "));
