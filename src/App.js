@@ -19,20 +19,26 @@ function App() {
   const [summary, setSummary] = useState("");
   const [updated, setUpdated] = useState("");
 
+  const random = () => {
+    return Math.floor(Math.random() * Math.floor(200));
+  };
+
   useEffect(() => {
     axios
-      .get("https://test.spaceflightnewsapi.net/api/v2/articles")
+      .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=200")
       .then((res) => {
+        const idx = random();
         setData(res.data);
-        setId(res.data[0].id);
-        setTitle(res.data[0].title);
-        setImage(res.data[0].imageUrl);
-        setNewsSite(res.data[0].newsSite);
-        setPublished(res.data[0].publishedAt);
-        setSummary(res.data[0].summary);
-        setUpdated(res.data[0].updatedAt);
-        setUrl(res.data[0].url);
+        setId(res.data[idx].id);
+        setTitle(res.data[idx].title);
+        setImage(res.data[idx].imageUrl);
+        setNewsSite(res.data[idx].newsSite);
+        setPublished(res.data[idx].publishedAt);
+        setSummary(res.data[idx].summary);
+        setUpdated(res.data[idx].updatedAt);
+        setUrl(res.data[idx].url);
         console.log(res.data);
+        console.log(idx);
       })
       .catch((error) => console.log("The API request has failed. "));
   }, []);
@@ -40,7 +46,7 @@ function App() {
   return (
     <body className="d-flex justify-content-center mainStyle">
       <div className="container">
-        <header className="header">
+        <header className="header" style={{ padding: "3rem 0" }}>
           <h1>Space Digest</h1>
           <p style={{ fontSize: "2rem" }}>Your Source for News of the Cosmos</p>
         </header>
@@ -69,21 +75,24 @@ function App() {
         </nav>
 
         <div className="App container">
-          <div className="bg-secondary jumbotron" style={{ marginTop: "3rem" }}>
+          <div
+            className="bg-dark jumbotron"
+            style={{ marginTop: "3rem", backgroundColor: "black", opacity: '0.98' }}
+          >
             <div style={{ paddingBottom: "3rem" }}>
               <h1 className="text-light">{title}</h1>
             </div>
             <img
               src={image}
               className="mx-auto d-block img-fluid w-100"
-              alt="this"
+              alt={title}
             />
             <p>{published}</p>
           </div>
           <h6>Story appears on: {newsSite}</h6>
           <h4>{summary}</h4>
           <button
-            class="btn btn-outline-dark"
+            className="btn btn-outline-dark"
             style={{ marginTop: "2rem", marginBottom: "2rem", color: "white" }}
           >
             <a href={url}>Click For The Full Story</a>

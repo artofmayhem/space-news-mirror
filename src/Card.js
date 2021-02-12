@@ -1,20 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
 export default function Card(props) {
-  const { data } = props;
-  
-      console.log(data, 'data');
-    
 
-
-
- 
-    useEffect(() => {    
-    
-    }, [])
 
   
   
