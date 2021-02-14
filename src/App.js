@@ -51,7 +51,7 @@ function App() {
           <p style={{ fontSize: "2rem" }}>Your Source for News of the Cosmos</p>
         </header>
         <nav
-          className="d-flex justify-content-center nav"
+          className="d-flex justify-content-center flex-row-wrap nav"
           style={{
             paddingTop: "3rem",
             paddingBottom: "3rem",
@@ -62,22 +62,30 @@ function App() {
             <a href="https://www.nasa.gov/">NASA</a>
           </button>
           <button className="btn btn-outline-dark">
-            <a href="https://www.spacenews.com/">SPACE NEWS</a>
-          </button>
-          <button className="btn btn-outline-dark">
             <a href="https://www.nasa.gov/mission_pages/shuttle/main/index.html">
               SHUTTLE MISSIONS
             </a>
           </button>
           <button className="btn btn-outline-dark">
+            <a href="https://nasaapodhawaii.netlify.app/">NASA APOD</a>
+          </button>
+
+          <button className="btn btn-outline-dark">
+            <a href="https://www.spacenews.com/">SPACE NEWS</a>
+          </button>
+          
+          <button className="btn btn-outline-dark">
             <a href="https://www.spacex.com/">SPACE X</a>
           </button>
         </nav>
-
         <div className="App container">
           <div
             className="bg-dark jumbotron"
-            style={{ marginTop: "3rem", backgroundColor: "black", opacity: '0.98' }}
+            style={{
+              marginTop: "3rem",
+              backgroundColor: "black",
+              opacity: "0.98",
+            }}
           >
             <div style={{ paddingBottom: "3rem" }}>
               <h1 className="text-light">{title}</h1>
@@ -103,6 +111,26 @@ function App() {
             <Card data={data} />
           </div>
         </div>
+        <footer
+        className="d-flex justify-content-between nav"
+        style={{
+          paddingTop: "3rem",
+          padding: "3rem 3rem",
+          backgroundColor: "#222",
+        }}
+      >
+        <a href="https://www.nasa.gov/">NASA</a>
+
+        <a href="https://www.nasa.gov/mission_pages/shuttle/main/index.html">
+          SHUTTLE MISSIONS
+        </a>
+
+        <a href="https://nasaapodhawaii.netlify.app/">NASA APOD</a>
+
+        <a href="https://www.spacenews.com/">SPACE NEWS</a>
+
+        <a href="https://www.spacex.com/">SPACE X</a>
+      </footer>
       </div>
     </body>
   );
