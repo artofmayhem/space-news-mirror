@@ -61,13 +61,11 @@ function App() {
           <button className="btn btn-outline-dark">
             <a href="https://www.nasa.gov/">NASA</a>
           </button>
+
           <button className="btn btn-outline-dark">
             <a href="https://www.nasa.gov/mission_pages/shuttle/main/index.html">
               SHUTTLE MISSIONS
             </a>
-          </button>
-          <button className="btn btn-outline-dark">
-            <a href="https://nasaapodhawaii.netlify.app/">NASA APOD</a>
           </button>
 
           <button className="btn btn-outline-dark">
@@ -76,6 +74,10 @@ function App() {
           
           <button className="btn btn-outline-dark">
             <a href="https://www.spacex.com/">SPACE X</a>
+          </button>
+
+          <button className="btn btn-outline-dark">
+            <a href="https://nasaapodhawaii.netlify.app/">APOD/ MARS ROVER image catalogue</a>
           </button>
         </nav>
         <div className="App container">
@@ -95,7 +97,7 @@ function App() {
               className="mx-auto d-block img-fluid w-100"
               alt={title}
             />
-            <p>{published}</p>
+            <p><em>Original story published: </em>{published}</p>
             <button
             className="btn btn-dark"
             style={{ backgroundColor: '#222', marginTop: "2rem", marginBottom: "2rem", color: "white", opacity: '0.7' }}
@@ -124,6 +126,7 @@ function App() {
           paddingTop: "3rem",
           padding: "3rem 3rem",
           backgroundColor: "#222",
+          textAlign: 'center',
         }}
       >
         <a href="https://www.nasa.gov/">NASA</a>
@@ -132,7 +135,7 @@ function App() {
           SHUTTLE MISSIONS
         </a>
 
-        <a href="https://nasaapodhawaii.netlify.app/">NASA APOD</a>
+        <a href="https://nasaapodhawaii.netlify.app/">APOD/ MARS ROVER</a>
 
         <a href="https://www.spacenews.com/">SPACE NEWS</a>
 
