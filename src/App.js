@@ -174,8 +174,8 @@ function App() {
             </button>
           </div>
           <div
-            className="d-flex flex-column justify-content-center"
-            style={{ alignItems: "center" }}
+            className="d-flex flex-row-wrap justify-content-center align-items-center"
+            style={{ alignItems: "center"  }}
           >
             <button
               className="btn btn-dark"
@@ -209,8 +209,7 @@ function App() {
                   margin: "auto auto",
                 }}
               >
-                Next Story
-              </p>
+                Latest News              </p>
             </button>
             <button
               className="btn btn-dark"
@@ -232,7 +231,7 @@ function App() {
                   margin: "auto auto",
                 }}
               >
-                Previous Story
+                Back
               </p>
             </button>
           </div>
