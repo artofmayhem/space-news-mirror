@@ -157,10 +157,20 @@ function App() {
               marginBottom: "2rem",
               color: "white",
               opacity: "0.7",
+              justifyItems: 'center',
             }}
             onClick={handleClick}
           >
-            <p>Latest News</p>
+            <p
+              style={{
+                color: "#4287f5",
+                justifySelf: "center",
+                alignSelf: "center",
+                margin: 'auto auto',
+              }}
+            >
+              Latest News
+            </p>
           </button>
           <div>
             <p>Story updated: {updated}</p>
