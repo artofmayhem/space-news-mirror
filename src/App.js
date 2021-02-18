@@ -43,8 +43,27 @@ function App() {
       .catch((error) => console.log("The API request has failed. "));
   }, []);
 
+  const handleClick = (e) => {
+    axios
+      .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=1")
+      .then((res) => {
+        setData(res.data);
+        setId(res.data[0].id);
+        setTitle(res.data[0].title);
+        setImage(res.data[0].imageUrl);
+        setNewsSite(res.data[0].newsSite);
+        setPublished(res.data[0].publishedAt);
+        setSummary(res.data[0].summary);
+        setUpdated(res.data[0].updatedAt);
+        setUrl(res.data[0].url);
+        console.log(res.data);
+        console.log(0);
+      })
+      .catch((error) => console.log("The API request has failed. "));
+  };
+
   return (
-    <body className="d-flex justify-content-center mainStyle">
+    <div className="d-flex justify-content-center mainStyle">
       <div className="container">
         <header className="header" style={{ padding: "3rem 0" }}>
           <h1>Space Digest</h1>
@@ -71,13 +90,15 @@ function App() {
           <button className="btn btn-outline-dark">
             <a href="https://www.spacenews.com/">SPACE NEWS</a>
           </button>
-          
+
           <button className="btn btn-outline-dark">
             <a href="https://www.spacex.com/">SPACE X</a>
           </button>
 
           <button className="btn btn-outline-dark">
-            <a href="https://nasaapodhawaii.netlify.app/">APOD/ MARS ROVER image catalogue</a>
+            <a href="https://nasaapodhawaii.netlify.app/">
+              APOD/ ROVER Gallery{" "}
+            </a>
           </button>
         </nav>
         <div className="App container">
@@ -97,22 +118,49 @@ function App() {
               className="mx-auto d-block img-fluid w-100"
               alt={title}
             />
-            <p><em>Original story published: </em>{published}</p>
+            <p>
+              <em>Original story published: </em>
+              {published}
+            </p>
             <button
-            className="btn btn-dark"
-            style={{ backgroundColor: '#222', marginTop: "2rem", marginBottom: "2rem", color: "white", opacity: '0.7' }}
-          >
-            <a href={url}>Click For The Full Story</a>
-          </button>
+              className="btn btn-dark"
+              style={{
+                backgroundColor: "#222",
+                marginTop: "2rem",
+                marginBottom: "2rem",
+                color: "white",
+                opacity: "0.7",
+              }}
+            >
+              <a href={url}>Click For The Full Story</a>
+            </button>
           </div>
           <h6>Story appears on: {newsSite}</h6>
           <h4>{summary}</h4>
           <button
             className="btn btn-dark"
-            style={{ marginTop: "2rem", backgroundColor: '#222', marginBottom: "2rem", color: "white", opacity: '0.7' }}
-            
+            style={{
+              marginTop: "2rem",
+              backgroundColor: "#222",
+              marginBottom: "2rem",
+              color: "white",
+              opacity: "0.7",
+            }}
           >
-            <a href='https://spacedigest.netlify.app'>New Randomized Story</a>
+            <a href="https://spacedigest.netlify.app">New Randomized Story</a>
+          </button>
+          <button
+            className="btn btn-dark"
+            style={{
+              marginTop: "2rem",
+              backgroundColor: "#222",
+              marginBottom: "2rem",
+              color: "white",
+              opacity: "0.7",
+            }}
+            onClick={handleClick}
+          >
+            <p>Latest News</p>
           </button>
           <div>
             <p>Story updated: {updated}</p>
@@ -121,28 +169,28 @@ function App() {
           </div>
         </div>
         <footer
-        className="d-flex justify-content-between nav"
-        style={{
-          paddingTop: "3rem",
-          padding: "3rem 3rem",
-          backgroundColor: "#222",
-          textAlign: 'center',
-        }}
-      >
-        <a href="https://www.nasa.gov/">NASA</a>
+          className="d-flex justify-content-between nav"
+          style={{
+            paddingTop: "3rem",
+            padding: "3rem 3rem",
+            backgroundColor: "#222",
+            textAlign: "center",
+          }}
+        >
+          <a href="https://www.nasa.gov/">NASA</a>
 
-        <a href="https://www.nasa.gov/mission_pages/shuttle/main/index.html">
-          SHUTTLE MISSIONS
-        </a>
+          <a href="https://www.nasa.gov/mission_pages/shuttle/main/index.html">
+            SHUTTLE MISSIONS
+          </a>
 
-        <a href="https://nasaapodhawaii.netlify.app/">APOD/ MARS ROVER</a>
+          <a href="https://nasaapodhawaii.netlify.app/">APOD/ MARS ROVER</a>
 
-        <a href="https://www.spacenews.com/">SPACE NEWS</a>
+          <a href="https://www.spacenews.com/">SPACE NEWS</a>
 
-        <a href="https://www.spacex.com/">SPACE X</a>
-      </footer>
+          <a href="https://www.spacex.com/">SPACE X</a>
+        </footer>
       </div>
-    </body>
+    </div>
   );
 }
 
