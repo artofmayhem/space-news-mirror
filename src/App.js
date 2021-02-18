@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card.js";
 import axios from "axios";
-//bootstrap imports
-//import Jumbotron from "react-bootstrap/JumboTron";
-
-//stylesheet imports
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
+
+let index = "0";
 
 function App() {
   const [data, setData] = useState();
@@ -24,40 +22,78 @@ function App() {
   };
 
   useEffect(() => {
+    console.log(index);
     axios
-      .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=200")
+      .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=100")
       .then((res) => {
-        const idx = random();
+        const index = random();
         setData(res.data);
-        setId(res.data[idx].id);
-        setTitle(res.data[idx].title);
-        setImage(res.data[idx].imageUrl);
-        setNewsSite(res.data[idx].newsSite);
-        setPublished(res.data[idx].publishedAt);
-        setSummary(res.data[idx].summary);
-        setUpdated(res.data[idx].updatedAt);
-        setUrl(res.data[idx].url);
+        setId(res.data[index].id);
+        setTitle(res.data[index].title);
+        setImage(res.data[index].imageUrl);
+        setNewsSite(res.data[index].newsSite);
+        setPublished(res.data[index].publishedAt);
+        setSummary(res.data[index].summary);
+        setUpdated(res.data[index].updatedAt);
+        setUrl(res.data[index].url);
         console.log(res.data);
-        console.log(idx);
+        console.log("initial random index value set in first api call", index);
       })
-      .catch((error) => console.log("The API request has failed. "));
+      .catch((error) => console.log("The API request has failed. ", error));
   }, []);
 
-  const handleClick = (e) => {
+  const handleDecrement = (e) => {
     axios
-      .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=1")
+      .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=100")
       .then((res) => {
+        console.log("incoming index from previous story", index);
+        if (index === 0) {
+          setData(res.data);
+          setId(res.data[index].id);
+          setTitle(res.data[index].title);
+          setImage(res.data[index].imageUrl);
+          setNewsSite(res.data[index].newsSite);
+          setPublished(res.data[index].publishedAt);
+          setSummary(res.data[index].summary);
+          setUpdated(res.data[index].updatedAt);
+          setUrl(res.data[index].url);
+          console.log("new index number after previous story call", index);
+          console.log(res.data);
+        } else {
+          index--;
+          setData(res.data);
+          setId(res.data[index].id);
+          setTitle(res.data[index].title);
+          setImage(res.data[index].imageUrl);
+          setNewsSite(res.data[index].newsSite);
+          setPublished(res.data[index].publishedAt);
+          setSummary(res.data[index].summary);
+          setUpdated(res.data[index].updatedAt);
+          setUrl(res.data[index].url);
+          console.log("new index number after previous story call", index);
+          console.log(res.data);
+        }
+      })
+      .catch((error) => console.log("The API request has failed. "));
+  };
+
+  const handleIncrement = (e) => {
+    axios
+      .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=100")
+      .then((res) => {
+        console.log("incoming index to increment", index);
+        index++;
         setData(res.data);
-        setId(res.data[0].id);
-        setTitle(res.data[0].title);
-        setImage(res.data[0].imageUrl);
-        setNewsSite(res.data[0].newsSite);
-        setPublished(res.data[0].publishedAt);
-        setSummary(res.data[0].summary);
-        setUpdated(res.data[0].updatedAt);
-        setUrl(res.data[0].url);
+        setId(res.data[index].id);
+        setTitle(res.data[index].title);
+        setImage(res.data[index].imageUrl);
+        setNewsSite(res.data[index].newsSite);
+        setPublished(res.data[index].publishedAt);
+        setSummary(res.data[index].summary);
+        setUpdated(res.data[index].updatedAt);
+        setUrl(res.data[index].url);
         console.log(res.data);
-        console.log(0);
+        console.log("new index number from increment", index);
       })
       .catch((error) => console.log("The API request has failed. "));
   };
@@ -117,7 +153,9 @@ function App() {
               src={image}
               className="mx-auto d-block img-fluid w-100"
               alt={title}
-            />
+            />{" "}
+            <h6>Story appears on: {newsSite}</h6>
+            <h4>{summary}</h4>
             <p>
               <em>Original story published: </em>
               {published}
@@ -135,43 +173,69 @@ function App() {
               <a href={url}>Click For The Full Story</a>
             </button>
           </div>
-          <h6>Story appears on: {newsSite}</h6>
-          <h4>{summary}</h4>
-          <button
-            className="btn btn-dark"
-            style={{
-              marginTop: "2rem",
-              backgroundColor: "#222",
-              marginBottom: "2rem",
-              color: "white",
-              opacity: "0.7",
-            }}
+          <div
+            className="d-flex flex-column justify-content-center"
+            style={{ alignItems: "center" }}
           >
-            <a href="https://spacedigest.netlify.app">New Randomized Story</a>
-          </button>
-          <button
-            className="btn btn-dark"
-            style={{
-              marginTop: "2rem",
-              backgroundColor: "#222",
-              marginBottom: "2rem",
-              color: "white",
-              opacity: "0.7",
-              justifyItems: 'center',
-            }}
-            onClick={handleClick}
-          >
-            <p
+            <button
+              className="btn btn-dark"
               style={{
-                color: "#4287f5",
-                justifySelf: "center",
-                alignSelf: "center",
-                margin: 'auto auto',
+                marginTop: "2rem",
+                backgroundColor: "#222",
+                marginBottom: "2rem",
+                color: "white",
+                opacity: "0.7",
               }}
             >
-              Latest News
-            </p>
-          </button>
+              <a href="https://spacedigest.netlify.app">New Randomized Story</a>
+            </button>
+            <button
+              className="btn btn-dark"
+              style={{
+                marginTop: "2rem",
+                backgroundColor: "#222",
+                marginBottom: "2rem",
+                color: "white",
+                opacity: "0.7",
+                justifyItems: "center",
+              }}
+              onClick={handleIncrement}
+            >
+              <p
+                style={{
+                  color: "#4287f5",
+                  justifySelf: "center",
+                  alignSelf: "center",
+                  margin: "auto auto",
+                }}
+              >
+                Next Story
+              </p>
+            </button>
+            <button
+              className="btn btn-dark"
+              style={{
+                marginTop: "2rem",
+                backgroundColor: "#222",
+                marginBottom: "2rem",
+                color: "white",
+                opacity: "0.7",
+                justifyItems: "center",
+              }}
+              onClick={handleDecrement}
+            >
+              <p
+                style={{
+                  color: "#4287f5",
+                  justifySelf: "center",
+                  alignSelf: "center",
+                  margin: "auto auto",
+                }}
+              >
+                Previous Story
+              </p>
+            </button>
+          </div>
           <div>
             <p>Story updated: {updated}</p>
             <p>{id}</p>
