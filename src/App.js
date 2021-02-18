@@ -96,14 +96,21 @@ function App() {
               alt={title}
             />
             <p>{published}</p>
+            <button
+            className="btn btn-dark"
+            style={{ backgroundColor: '#222', marginTop: "2rem", marginBottom: "2rem", color: "white", opacity: '0.7' }}
+          >
+            <a href={url}>Click For The Full Story</a>
+          </button>
           </div>
           <h6>Story appears on: {newsSite}</h6>
           <h4>{summary}</h4>
           <button
-            className="btn btn-outline-dark"
-            style={{ marginTop: "2rem", marginBottom: "2rem", color: "white" }}
+            className="btn btn-dark"
+            style={{ marginTop: "2rem", backgroundColor: '#222', marginBottom: "2rem", color: "white", opacity: '0.7' }}
+            
           >
-            <a href={url}>Click For The Full Story</a>
+            <a href='https://spacedigest.netlify.app'>New Randomized Story</a>
           </button>
           <div>
             <p>Story updated: {updated}</p>
